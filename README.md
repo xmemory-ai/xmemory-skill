@@ -23,3 +23,10 @@ uvx xmemcli auth status
 ```
 
 If not authenticated: run `uvx xmemcli auth login` (easiest during xmemory onboarding) or create an API key in the [Console](https://console.xmemory.ai).
+
+## License
+
+© xmemory Inc. All rights reserved. This skill is proprietary; permission is granted to install
+it (e.g. via the `skills` CLI) and to redistribute it solely to distribute it through agent-skill
+registries, and to use it solely to connect to the xmemory service. See [`LICENSE`](./LICENSE).
+Use of xmemory is governed by the [Terms & Conditions](https://xmemory.ai/terms-and-conditions.html).

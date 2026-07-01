@@ -1,0 +1,25 @@
+xmemory — agent skill (xmemcli-agent)
+Copyright (c) xmemory Inc. All rights reserved.
+
+This repository (the "Skill") — the SKILL.md instructions and the accompanying
+documentation — is proprietary to xmemory Inc.
+
+GRANT. xmemory Inc. grants a limited, non-exclusive, royalty-free permission to:
+  (a) reproduce and redistribute the Skill solely to list, host, and distribute
+      it through agent-skill registries and installers (e.g. the `skills` CLI /
+      skills.sh and equivalent channels); and
+  (b) install and use the Skill for the sole purpose of using the xmemory service
+      via xmemcli.
+
+RESERVATION. All other rights are reserved. Except as expressly permitted above,
+the Skill may not be copied, modified, distributed, sublicensed, or used to
+create derivative works without xmemory Inc.'s prior written permission. The
+"xmemory" name and logo are trademarks of xmemory Inc.
+
+SERVICE TERMS. Use of the xmemory service is governed by the Terms & Conditions
+at https://xmemory.ai/terms-and-conditions.html and the Privacy Policy at
+https://xmemory.ai/privacy-policy.html.
+
+NO WARRANTY. The Skill is provided "AS IS", without warranty of any kind, and to
+the extent permitted by law xmemory Inc. disclaims all warranties and liability
+arising from its use.
