@@ -64,6 +64,12 @@ Every read and write targets **one** instance. There is no shared pool — choos
 
 Writes take plain language; xmemory maps text onto the instance's schema. Group related facts in one write; for many writes, `write --no-wait` then `write-status`.
 
+# Speak English first
+
+xmemcli is designed for **plain English**. When uploading data, do not try to push raw JSON objects, YAML documents, or database-shaped dumps through `write`. Tell xmemory the facts cleanly: what exists, how it relates, what changed, and what should be remembered. Agents are good at turning source material into precise English; use that strength.
+
+Reads are the same. Do not make the query look like SQL or an API filter unless the CLI help asks for a specific flag. Ask the question in natural language: the instance schema gives xmemory the structure; English gives it the intent.
+
 # When you need a new instance
 
 Sometimes the right move is a new named home. An instance is **typed storage**: objects, fields, relations, primary keys — designed once, then filled with writes.
