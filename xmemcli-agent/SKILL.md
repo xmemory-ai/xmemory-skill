@@ -79,9 +79,23 @@ export XMEM_INSTANCE_ID="<uuid from output>"
 
 Give every instance a **name and a description**. The next reader — you, another agent, the human — chooses from `org list instances` without guessing.
 
-# When the domain grows
+# Schemas, XMD, and evolution
 
-Schemas evolve. `$XMEMCLI xmd enhance`, then `schema dry-run`, then `schema update`. Details in `$XMEMCLI help schema`. Reach for this when writes no longer fit the model, not on day one.
+Every instance is governed by a **schema** in **XMD** (xmemory Data): objects, fields, relations, primary keys. xmemory is not a bag of text — **reads and writes always follow that schema**. What you write lands on defined objects and fields; what you read comes back structured the same way.
+
+When the domain needs **new fields, objects, or relations**, evolve the schema **before** you write facts that depend on them. Do not keep forcing writes into a model that no longer fits.
+
+**Design a new schema** with `xmd generate` and `xmd validate` (see above). **Change an existing one:**
+
+```bash
+$XMEMCLI schema get "$XMEM_INSTANCE_ID" -o schema.yml
+$XMEMCLI xmd enhance schema.yml "Describe what to add or change…" -o schema-v2.yml
+$XMEMCLI xmd validate schema-v2.yml
+$XMEMCLI schema dry-run "$XMEM_INSTANCE_ID" --schema-file schema-v2.yml
+$XMEMCLI schema update "$XMEM_INSTANCE_ID" --schema-file schema-v2.yml
+```
+
+`xmd` commands draft and check schema files; `schema` commands apply them to the live instance. Details: `$XMEMCLI help xmd` and `$XMEMCLI help schema`. You do not need this on day one — but when the shape of memory must grow, reach for it without hesitation.
 
 # What you can do
 

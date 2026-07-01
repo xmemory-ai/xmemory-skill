@@ -1,8 +1,6 @@
-# random-stuff
+# xmemory-skill
 
-[![skills.sh](https://skills.sh/b/dimacurrentai/random-stuff)](https://skills.sh/dimacurrentai/random-stuff)
-
-Agent skills and experiments.
+Agent skill for using **xmemory** through **xmemcli**.
 
 ## xmemcli-agent
 
@@ -13,19 +11,7 @@ Teaches AI agents to use **xmemory** through **xmemcli** — auth, list instance
 From any project (e.g. `chinook-small`):
 
 ```bash
-npx skills add dimacurrentai/random-stuff --skill xmemcli-agent
-```
-
-Global install:
-
-```bash
-npx skills add -g dimacurrentai/random-stuff --skill xmemcli-agent
-```
-
-List skills in this repo without installing:
-
-```bash
-npx skills add dimacurrentai/random-stuff --list
+npx skills add xmemory-ai/xmemory-skill
 ```
 
 ### Prerequisites (human, one-time)
