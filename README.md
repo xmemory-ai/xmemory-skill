@@ -1,6 +1,7 @@
 # xmemory-skill
 
-Agent skill for using **xmemory** through **xmemcli**.
+Agent skills for using **xmemory** — through **xmemcli** (generic) or through the
+**xmemory MCP server** in [Archestra](https://archestra.ai).
 
 ## xmemcli-agent
 
@@ -23,6 +24,25 @@ uvx xmemcli auth status
 ```
 
 If not authenticated: run `uvx xmemcli auth login` (easiest during xmemory onboarding) or create an API key in the [Console](https://console.xmemory.ai).
+
+## xmemory-archestra
+
+Teaches agents running on the [Archestra platform](https://archestra.ai) to use xmemory through
+its **remote MCP server** (`https://mcp.xmemory.ai`) — reading, writing, schema evolution, and the
+separate `xmemory-admin` instance-management connection. See
+[xmemory-archestra/SKILL.md](xmemory-archestra/SKILL.md).
+
+### Install (Archestra GitHub import)
+
+In Archestra: **Skills → Import from GitHub** → enter `xmemory-ai/xmemory-skill`, select
+`xmemory-archestra`, and optionally enable **Keep in sync**. The skill's name `xmemory` becomes
+the `/xmemory` slash command when slash commands are enabled.
+
+### Prerequisites (org admin, one-time)
+
+An Archestra org admin registers the xmemory remote MCP server in the private MCP registry:
+URL `https://mcp.xmemory.ai` with OAuth, or `https://mcp.xmemory.ai/instance/<id>` with an API
+key from the [Console](https://console.xmemory.ai). Full guide: <https://xmemory.ai/mcp>.
 
 ## License
 
