@@ -3,6 +3,24 @@
 Agent skills for using **xmemory** — through **xmemcli** (generic) or through the
 **xmemory MCP server** in [Archestra](https://archestra.ai).
 
+## xmemory-instance-creation
+
+The onboarding interview: guides an agent through creating a user's **first memory
+instance** with xmemcli — a 3-turn interview that suggests a ready-made template or
+builds a custom schema (analysing the user's normal workflow only with consent), creates
+the instance, and applies the instance-specific setup printed by the CLI. Entirely
+CLI-driven; no MCP. See
+[xmemory-instance-creation/SKILL.md](xmemory-instance-creation/SKILL.md).
+
+### Install (skills.sh / npx)
+
+```bash
+npx skills add xmemory-ai/xmemory-skill --agent '*' -y
+```
+
+The onboarding bootstrap prompt (<https://xmemory.ai/agent-onboarding-prompt.txt>) points
+agents at this skill and installs it on demand.
+
 ## xmemcli-agent
 
 Teaches AI agents to use **xmemory** through **xmemcli** — auth, list instances, read, write, create instances, evolve schemas. See [xmemcli-agent/SKILL.md](xmemcli-agent/SKILL.md).
