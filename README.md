@@ -5,7 +5,7 @@ Agent skills for using **xmemory** — through **xmemcli** (generic) or through 
 
 ## xmemcli-agent
 
-Teaches AI agents to use **xmemory** through **xmemcli** — auth, list instances, read, write, create instances, evolve schemas. See [xmemcli-agent/SKILL.md](xmemcli-agent/SKILL.md).
+Teaches AI agents to use **xmemory** through **xmemcli** — auth, list instances, read, write, create instances, connect them to agents, evolve schemas. See [xmemcli-agent/SKILL.md](xmemcli-agent/SKILL.md).
 
 ### Install (skills.sh / npx)
 
