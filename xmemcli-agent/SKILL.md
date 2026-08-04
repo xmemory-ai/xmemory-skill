@@ -85,6 +85,28 @@ export XMEM_INSTANCE_ID="<uuid from output>"
 
 Give every instance a **name and a description**. The next reader — you, another agent, the human — chooses from `org list instances` without guessing.
 
+# Connect it to an agent
+
+An instance can exist without anything pointing at it. A client — Claude Code, Codex, an IDE — needs its own entry before this memory is reachable from there.
+
+**The create output already says how.** `instance create` returns the connect instructions beside the new id, so on the common path you already have them and there is nothing more to fetch.
+
+**Ask again any time:**
+
+```bash
+$XMEMCLI instance setup "$XMEM_INSTANCE_ID"
+```
+
+The id is optional — it falls back to `--instance-id` or `$XMEM_INSTANCE_ID` — so either form works once the instance is pinned. Reach for it when the instance already existed, when the user moves to another machine or another client, or when the create output has scrolled out of reach. The steps come back ordered by where this instance is likely to be used, computed from the instance as it stands now, so they keep up as it changes. They carry **no credential**: they tell the reader to sign in themselves.
+
+**Setting up a repository rather than one machine?** Add `--format project`:
+
+```bash
+$XMEMCLI instance setup "$XMEM_INSTANCE_ID" --format project
+```
+
+That also prints the shared setup files to commit once, so every teammate's agent picks this instance up instead of each person wiring it by hand. Each teammate still approves the install and signs in once — the files carry configuration, never secrets.
+
 # Schemas, XMD, and evolution
 
 Every instance is governed by a **schema** in **XMD** (xmemory Data): objects, fields, relations, primary keys. xmemory is not a bag of text — **reads and writes always follow that schema**. What you write lands on defined objects and fields; what you read comes back structured the same way.
