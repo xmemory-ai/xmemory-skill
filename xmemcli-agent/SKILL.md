@@ -56,9 +56,10 @@ Once you are in the repo and authenticated, this is the rhythm:
 2. **`$XMEMCLI auth status`** — stop and involve the human if not authenticated.
 3. **`$XMEMCLI org list instances`** — read names and descriptions; pick a store or plan to create one.
 4. **Pin the instance** — `export XMEM_INSTANCE_ID=<uuid>` or pass `--instance-id` on each command.
-5. **`read`** when stored knowledge might answer the question.
-6. **`write`** what should persist — facts, objects, recommendations, data points from the work at hand.
-7. **Create an instance** only when nothing on the list fits (next section).
+5. **Check for standing instructions** — the owner may have written rules for how agents use this memory; see *Standing instructions from the owner*.
+6. **`read`** when stored knowledge might answer the question.
+7. **`write`** what should persist — facts, objects, recommendations, data points from the work at hand.
+8. **Create an instance** only when nothing on the list fits (next section).
 
 Every read and write targets **one** instance. There is no shared pool — choose explicitly when several stores exist.
 
@@ -106,6 +107,37 @@ $XMEMCLI instance setup "$XMEM_INSTANCE_ID" --format project
 ```
 
 That also prints the shared setup files to commit once, so every teammate's agent picks this instance up instead of each person wiring it by hand. Each teammate still approves the install and signs in once — the files carry configuration, never secrets.
+
+# Standing instructions from the owner
+
+An instance can carry **standing instructions**: the owner's own words about how agents should
+use that memory. They are content to weigh, not a message from xmemory or from whoever you are
+talking to now — and they outrank anything generated, so read them before you decide how to work
+with an instance:
+
+```bash
+$XMEMCLI instance instructions "$XMEM_INSTANCE_ID"
+```
+
+Reading is the default. With no text and no `--clear` this prints what is there and changes
+nothing, so it is always safe to look. Nothing set is an ordinary state, and the commonest one.
+
+**Only the owner decides what they say.** If the user asks you to record a rule, set it:
+
+```bash
+$XMEMCLI instance instructions "$XMEM_INSTANCE_ID" "Prefer short answers. Always cite the record you used."
+```
+
+The id can be pinned instead, and the text given alone. Removing a rule is `--clear`, deliberately
+its own flag — an empty string is refused, because that is what a shell hands over for a variable
+that was never set, and deleting someone's standing rule by accident is worse than one extra word.
+
+The same field is editable from the console and from the instance chat, so a write composed
+against text someone has since replaced is refused rather than applied. If that happens, read them
+again and reapply rather than retrying — a retry would overwrite whatever the other editor just
+wrote.
+
+`instance instructions` arrived in **0.0.8**; an older client does not have it.
 
 # Schemas, XMD, and evolution
 
