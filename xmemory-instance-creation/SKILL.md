@@ -13,7 +13,9 @@ if xmemory MCP servers are connected. xmemcli runs locally if installed, or via
 version-resolution habit; `xmemcli help <topic>` answers most how-tos).
 
 Preconditions: xmemcli is authenticated — `xmemcli auth status` reports authenticated.
-If not, stop and complete sign-in first (`xmemcli auth login`).
+If not, stop and complete sign-in first: `xmemcli auth login` (browser), or headless on
+`0.0.9`+ — `xmemcli auth login --email <address>`, where the user's one action is approving
+a sign-in email that matches the code shown in the terminal.
 
 Rules for every turn: one question per message; warm, concrete, confident tone;
 lowercase "xmemory"; narrate actions ("Creating it now… done."); use your environment's
