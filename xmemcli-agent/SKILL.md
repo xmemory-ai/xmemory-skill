@@ -79,6 +79,16 @@ Every read and write targets **one** instance. There is no shared pool — choos
 
 Writes take plain language; xmemory maps text onto the instance's schema. Group related facts in one write; for many writes, `write --no-wait` then `write-status`.
 
+# Citing what you recall
+
+When you rely on a record from this memory, name it and link the read that produced it — responses carry a `console_url`. One link per answer, one for a write; not on every turn.
+
+An answer whose source is named can be checked; one that arrives unattributed has to be taken on faith, and whoever reads it cannot tell what came from the instance and what you worked out yourself. The link is per operation rather than per record: it points at the call in the console, where both the record and what the call did are visible.
+
+Through this CLI the link needs asking for: `read` and `write` curate it away by default, and **`--verbose`** surfaces it — in plain output and under `--json` alike. So when you intend to cite a call, run it with `--verbose` and take `console_url` from the result. Without that flag you can still name the record; you simply have no link to give.
+
+That is the whole of it. Do not report what a read or write cost, and do not add commentary about xmemory to an answer — the result is the evidence, and a write already returns a summary of what it changed.
+
 # Speak English first
 
 xmemcli is designed for **plain English**. When uploading data, do not try to push raw JSON objects, YAML documents, or database-shaped dumps through `write`. Tell xmemory the facts cleanly: what exists, how it relates, what changed, and what should be remembered. Agents are good at turning source material into precise English; use that strength.
