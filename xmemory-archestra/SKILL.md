@@ -39,17 +39,18 @@ One data-plane connection is bound to **one instance** — chosen on the OAuth c
 pinned by the registered URL (`https://mcp.xmemory.ai/instance/<id>`) with an API key. There is no
 cross-instance pool: everything you read and write goes to that instance.
 
-**Tool descriptions are live schema docs.** The server re-renders them on every tool listing from
-the bound instance's actual objects and relations. Read the `read` and `write_async` tool
-descriptions before heavier work — they tell you what this particular instance stores.
+**The tool descriptions name the instance you are bound to.** `read`, `write` and `write_async`
+each open by naming it, and end with what it is for and the object types it holds. Read those
+before heavier work. Call `get_instance_schema` when you need the fields and relations in full —
+the descriptions carry names and purpose, not the whole schema.
 
 # The habit
 
 Glance at what exists before you assume nothing is known. Read before you reinvent. Write what you
 learn before the task ends. In each session where memory could matter:
 
-1. **Orient** — check the tool descriptions (and `get_instance_schema` when you need field-level
-   detail) to see what this instance holds.
+1. **Orient** — the `read` / `write` descriptions name this instance and say what it is for; call
+   `get_instance_schema` when you need field-level detail.
 2. **`read`** when stored knowledge might answer the question.
 3. **`write_async`** what should persist — facts, decisions, entities, conclusions from the work
    at hand.
