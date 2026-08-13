@@ -94,9 +94,9 @@ xmemory proposes schema improvements from your real read/write traffic:
 migration — confirm with the user first**.
 
 Some connections also grant direct schema management: `get_instance_schema` →
-`enhance_schema` (LLM drafts the change; never hand-edit schema YAML) →
-`dry_run_schema_migration` (preview) → `update_instance_schema` (apply). Always dry-run before
-updating, and confirm with the user before applying.
+`enhance_schema` (drafts the change from a description — editing the XMD yourself is equally
+valid) → `dry_run_schema_migration` (preview) → `update_instance_schema` (apply). Always
+dry-run before updating, and confirm with the user before applying.
 
 # Instance management (`xmemory-admin`)
 
