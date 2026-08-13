@@ -67,9 +67,10 @@ Choosing "Create <Name>" was the user's approval — do not re-confirm. Then:
 1. Compose the schema description: for a template, write a thorough free-text
    description from its catalogue entry below (what it is, its object types, the example
    writes and reads); for custom, use what the user told you.
-2. Generate: `xmemcli xmd generate "<description>" -o schema.yml` — never write or edit
-   schema YAML yourself. If it fails, retry once with a restated description; if it
-   fails again, suggest the console's guided setup and stop.
+2. Get the schema: `xmemcli xmd generate "<description>" -o schema.yml`, or author the
+   XMD yourself when you already know the shape — generation is a convenience, not a
+   requirement. If generation fails, retry once with a restated description; if it fails
+   again, write the XMD yourself or suggest the console's guided setup.
 3. Create: `xmemcli instance create --name "<Name>" --schema-file schema.yml` (add
    `--description` when the user gave one). The CLI resolves the cluster automatically
    when there is exactly one.
