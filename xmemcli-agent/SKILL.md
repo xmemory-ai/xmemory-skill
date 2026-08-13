@@ -40,10 +40,10 @@ Refresh latest first; use local `xmemcli` only when versions match. Everything b
 
 xmemory only works when **credentials work**. You do not log in unless the user asks you to — but **do ask** when auth fails. Fixing it is quick; giving up on memory is not.
 
-**Best time to connect:** while the user is **onboarding xmemory in the browser**. Ask them to run `auth login` in the same breath — the browser handoff lands in `.xmemrc.json` with almost no extra steps. Say it plainly: *"Let's hook up the CLI now while you're in onboarding."*
+**Best time to connect:** while the user is **onboarding xmemory in the browser**. Ask them to run `auth login` in the same breath — onboarding delivers the key with almost no extra steps, and it lands in `.xmemrc.json`. Say it plainly: *"Let's hook up the CLI now while you're in onboarding."*
 
-**No browser on this machine** (xmemcli `0.0.9`+): offer to run the headless sign-in on the
-user's behalf, and start it only on their go-ahead — it sends a real email to their inbox:
+**They would rather not open the Console at all** (xmemcli `0.0.9`+): offer to run the email sign-in on
+their behalf, and start it only on their go-ahead — it sends a real email to their inbox:
 
 ```bash
 $XMEMCLI auth login --email <their-address>
@@ -56,7 +56,7 @@ not re-run it: each run sends another email). The credential lands in `.xmemrc.j
 never printed. If the CLI reports the server offered no cross-device approval, fall back to
 the browser flow.
 
-**Later:** the user creates an API key in the [xmemory Console](https://console.xmemory.ai) under **API Keys**, then `auth login` or a local `.xmemrc.json`. Never paste keys into chat.
+**Later:** `auth login` opens the [xmemory Console](https://console.xmemory.ai), where the user approves and the CLI collects the key itself — nothing has to reach their machine, so this works over SSH and in containers, and `--no-browser` prints a URL they can open on any device. A key they already hold goes in a local `.xmemrc.json`. Never paste keys into chat.
 
 **Run from the right place.** xmemcli reads **`.xmemrc.json`** from the current directory or a parent. **`cd` to the repository root** — where that file lives — before you run commands. A failed auth status often means the wrong directory, not a missing login. If you must work elsewhere, symlink the file: `ln -s /path/to/repo/.xmemrc.json .xmemrc.json`.
 
