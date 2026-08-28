@@ -77,12 +77,19 @@ Choosing "Create <Name>" was the user's approval — do not re-confirm. Then:
    when there is exactly one.
 4. Set up this environment: the create output includes the connect instructions for
    agent surfaces — follow the steps for this environment now, with the user's
-   confirmation for anything that writes files. For the committable, instance-specific
-   install (the files a project commits so the whole team gets this instance), run
-   `xmemcli instance setup <instance-id> --format project` and apply the printed
-   fragments exactly as their merge notes say — merge, never overwrite existing settings
-   files.
-5. Close in one message: what exists now (name and id); what was installed; the hook:
+   confirmation for anything that writes files. The numbered steps are only the half you
+   run; the bullet lines under a surface are the steps only the user can take, so relay
+   them instead of dropping them. Registering a server is not the same as connecting it:
+   the form that takes a URL is authorized by the user in their own client and no client
+   starts that on its own, and a server added mid-session usually connects only after a
+   restart. The bullets carry the command this surface needs — quote it. For the
+   committable, instance-specific install (the files a project commits so the whole team
+   gets this instance), run `xmemcli instance setup <instance-id> --format project` and
+   apply the printed fragments exactly as their merge notes say — merge, never overwrite
+   existing settings files.
+5. Close in one message: what exists now (name and id); what was installed; anything
+   the user still has to do, named as a command they can run — never report a server as
+   connected when it is only registered; the hook:
    "It gets more accurate the more you use it — just talk naturally and ask it to
    remember things; you can reshape the structure any time." Optionally suggest 2-3
    first things to say, adapted from the template's example writes — suggestions only,
