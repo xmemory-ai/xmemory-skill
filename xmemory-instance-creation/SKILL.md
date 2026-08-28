@@ -14,8 +14,9 @@ version-resolution habit; `xmemcli help <topic>` answers most how-tos).
 
 Preconditions: xmemcli is authenticated — `xmemcli auth status` reports authenticated.
 If not, stop and complete sign-in first: `xmemcli auth login` (browser), or headless on
-`0.0.9`+ — `xmemcli auth login --email <address>`, where the user's one action is approving
-the sign-in email that arrives for the attempt they just started.
+`0.0.9`+ — `xmemcli auth login --email <address>`, where the user's one action is opening
+the sign-in email that arrives for the attempt they just started and following its link —
+**Approve** is a button on the page that link opens, not in the email itself.
 
 Rules for every turn: one question per message; warm, concrete, confident tone;
 lowercase "xmemory"; narrate actions ("Creating it now… done."); use your environment's

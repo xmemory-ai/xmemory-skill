@@ -50,7 +50,8 @@ $XMEMCLI auth login --email <their-address>
 ```
 
 Tell them the email is on its way *before* running it; their one action is opening that email
-and pressing **Approve** — remind them to do so only for a sign-in they just asked for. The
+and following its link, then pressing **Approve** on the page it opens — the button is on that
+page, not in the email. Remind them to do so only for a sign-in they just asked for. The
 command waits for the approval (allow several minutes — run it with a generous timeout, and do
 not re-run it: each run sends another email). The credential lands in `.xmemrc.json` and is
 never printed. If the CLI reports the server offered no cross-device approval, fall back to
