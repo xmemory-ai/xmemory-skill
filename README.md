@@ -8,7 +8,9 @@ Agent skills for using **xmemory** — through **xmemcli** (generic) or through 
 The onboarding interview: guides an agent through creating a user's **first memory
 instance** with xmemcli — a 3-turn interview that suggests a ready-made template or
 builds a custom schema (analysing the user's normal workflow only with consent), creates
-the instance, and applies the instance-specific setup printed by the CLI. Entirely
+the instance, and applies the instance-specific setup printed by the CLI. The templates
+are read from the service at run time rather than listed here, so this skill has no
+catalogue to go stale. Entirely
 CLI-driven; no MCP. See
 [xmemory-instance-creation/SKILL.md](xmemory-instance-creation/SKILL.md).
 
