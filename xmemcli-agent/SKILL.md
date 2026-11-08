@@ -182,6 +182,8 @@ $XMEMCLI schema update "$XMEM_INSTANCE_ID" --schema-file schema-v2.yml
 
 `xmd` commands draft and check schema files; `schema` commands apply them to the live instance. Details: `$XMEMCLI help xmd` and `$XMEMCLI help schema`. You do not need this on day one — but when the shape of memory must grow, reach for it without hesitation.
 
+A text field that should build up over time rather than be overwritten (running notes, open next steps) can declare a `merge`: `max_length` is required, and optional `rules` say how a new value merges into the stored text. `xmd generate` and `xmd enhance` never add one, so write it into the schema file yourself; adding, changing or removing it is a metadata-only update. A write then prints any contradiction the merge resolved as a `note:` line, with the value it kept.
+
 # What you can do
 
 **Remember** — write durable facts instead of leaving them in chat or temp files.

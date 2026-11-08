@@ -99,6 +99,12 @@ Choosing "Create <Name>" was the user's approval — do not re-confirm. Then:
    description; if it fails again, write the XMD yourself or suggest the console's guided
    setup. Then `xmemcli instance create --name "<Name>" --schema-file schema.yml`.
 
+   A text field meant to build up over time rather than be overwritten (running notes,
+   open next steps) can take a `merge`: `max_length` is required, and optional `rules`
+   say how a new value merges into the stored text (e.g. "Drop a step the text says is
+   done."). Generation never adds one; write it into the XMD yourself when the user
+   describes such a field.
+
    Either way the CLI resolves the cluster automatically when there is exactly one, and
    both forms print the same thing: the new id and the connect instructions.
 2. Set up this environment: the create output includes the connect instructions for
