@@ -184,6 +184,8 @@ $XMEMCLI schema update "$XMEM_INSTANCE_ID" --schema-file schema-v2.yml
 
 A text field that should build up over time rather than be overwritten (running notes, open next steps) can declare a `merge`: `max_length` is required, and optional `rules` say how a new value merges into the stored text. `xmd generate` and `xmd enhance` never add one, so write it into the schema file yourself; adding, changing or removing it is a metadata-only update. A write then prints any contradiction the merge resolved as a `note:` line, with the value it kept.
 
+A relation can declare `fields` of its own for a value that belongs to one link rather than to either record, such as a person's title at a company. Only structured writes set their values (`write --mutations-file`, a relation `create` or `update` with `values`); a text write does not, so a value that will arrive as text belongs on an object. `xmd generate` and `xmd enhance` never add them, so write them into the schema file yourself, together with the relation: a `schema update` that adds or removes a field on an existing relation, or changes its type, enum or default, is refused; its description can change. None may be `required` or take a `merge`, and none may be named like one of the relation's roles or a name the server reserves.
+
 # What you can do
 
 **Remember** — write durable facts instead of leaving them in chat or temp files.
